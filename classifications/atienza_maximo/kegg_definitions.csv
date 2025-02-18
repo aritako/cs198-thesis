@@ -1,0 +1,132 @@
+Classification ID,Function
+09140,Cellular Processes
+09143,Cell growth and death
+04111,Cell cycle - yeast
+09130,Environmental Information Processing
+09132,Signal transduction
+04011,MAPK signaling pathway - yeast
+04113,Meiosis - yeast
+09180,Brite Hierarchies
+09182,Protein families: genetic information processing
+03000,Transcription factors [BR:sce03000]
+03032,DNA replication proteins [BR:sce03032]
+09120,Genetic Information Processing
+09124,Replication and repair
+03030,DNA replication
+03036,Chromosome and associated proteins [BR:sce03036]
+09181,Protein families: metabolism
+01009,Protein phosphatases and associated proteins [BR:sce01009]
+03019,Messenger RNA biogenesis [BR:sce03019]
+09183,Protein families: signaling and cellular processes
+04031,GTP-binding proteins [BR:sce04031]
+09100,Metabolism
+09101,Carbohydrate metabolism
+00020,Citrate cycle (TCA cycle)
+00630,Glyoxylate and dicarboxylate metabolism
+00520,Amino sugar and nucleotide sugar metabolism
+09102,Energy metabolism
+00190,Oxidative phosphorylation
+04131,Membrane trafficking [BR:sce04131]
+00500,Starch and sucrose metabolism
+01003,Glycosyltransferases [BR:sce01003]
+09108,Metabolism of cofactors and vitamins
+00130,Ubiquinone and other terpenoid-quinone biosynthesis
+00010,Glycolysis / Gluconeogenesis
+00051,Fructose and mannose metabolism
+00052,Galactose metabolism
+09110,Biosynthesis of other secondary metabolites
+00524,"Neomycin, kanamycin and gentamicin biosynthesis"
+09103,Lipid metabolism
+00061,Fatty acid biosynthesis
+00071,Fatty acid degradation
+09141,Transport and catabolism
+04146,Peroxisome
+01004,Lipid biosynthesis proteins [BR:sce01004]
+04147,Exosome [BR:sce04147]
+00620,Pyruvate metabolism
+00640,Propanoate metabolism
+00254,Aflatoxin biosynthesis
+09131,Membrane transport
+02010,ABC transporters
+02000,Transporters [BR:sce02000]
+01040,Biosynthesis of unsaturated fatty acids
+09150,Organismal Systems
+09154,Digestive system
+04977,Vitamin digestion and absorption
+04981,Folate transport and metabolism
+04392,Hippo signaling pathway - multiple species
+09190,Not Included in Pathway or Brite
+09191,Unclassified: metabolism
+99980,Enzymes with EC numbers
+03400,DNA repair and recombination proteins [BR:sce03400]
+09192,Unclassified: genetic information processing
+99973,Transcription
+09193,Unclassified: signaling and cellular processes
+99992,Structural proteins
+04812,Cytoskeleton proteins [BR:sce04812]
+09142,Cell motility
+04814,Motor proteins
+01001,Protein kinases [BR:sce01001]
+00535,Proteoglycans [BR:sce00535]
+03029,Mitochondrial biogenesis [BR:sce03029]
+09107,Glycan biosynthesis and metabolism
+00510,N-Glycan biosynthesis
+09123,"Folding, sorting and degradation"
+04141,Protein processing in endoplasmic reticulum
+03410,Base excision repair
+03420,Nucleotide excision repair
+03430,Mismatch repair
+03440,Homologous recombination
+03460,Fanconi anemia pathway
+09104,Nucleotide metabolism
+00230,Purine metabolism
+00240,Pyrimidine metabolism
+09106,Metabolism of other amino acids
+00480,Glutathione metabolism
+00670,One carbon pool by folate
+03450,Non-homologous end-joining
+03012,Translation factors [BR:sce03012]
+09122,Translation
+00970,Aminoacyl-tRNA biosynthesis
+01007,Amino acid related enzymes [BR:sce01007]
+03016,Transfer RNA biogenesis [BR:sce03016]
+00062,Fatty acid elongation
+09105,Amino acid metabolism
+00270,Cysteine and methionine metabolism
+00280,"Valine, leucine and isoleucine degradation"
+00290,"Valine, leucine and isoleucine biosynthesis"
+00770,Pantothenate and CoA biosynthesis
+00563,Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
+00600,Sphingolipid metabolism
+00513,Various types of N-glycan biosynthesis
+04121,Ubiquitin system [BR:sce04121]
+01002,Peptidases and inhibitors [BR:sce01002]
+04145,Phagosome
+03041,Spliceosome [BR:sce03041]
+09126,Chromosome
+03082,ATP-dependent chromatin remodeling
+03021,Transcription machinery [BR:sce03021]
+00030,Pentose phosphate pathway
+00514,Other types of O-glycan biosynthesis
+00515,Mannose type O-glycan biosynthesis
+00920,Sulfur metabolism
+03110,Chaperones and folding catalysts [BR:sce03110]
+03018,RNA degradation
+04148,Efferocytosis
+99981,Carbohydrate metabolism
+04138,Autophagy - yeast
+01006,Prenyltransferases [BR:sce01006]
+03013,Nucleocytoplasmic transport
+00562,Inositol phosphate metabolism
+04070,Phosphatidylinositol signaling system
+03008,Ribosome biogenesis in eukaryotes
+03009,Ribosome biogenesis [BR:sce03009]
+04120,Ubiquitin mediated proteolysis
+09125,Information processing in viruses
+03273,Virion - Lassa virus and SFTS virus
+04820,Cytoskeleton in muscle cells
+09121,Transcription
+03022,Basal transcription factors
+00760,Nicotinate and nicotinamide metabolism
+09149,Aging
+04213,Longevity regulating pathway - multiple species
