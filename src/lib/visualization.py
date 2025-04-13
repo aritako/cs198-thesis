@@ -71,11 +71,22 @@ def visualize_disconnected_communities(
     plt.show()
 
 def visualize_hierarchical_communities(
-    G, top_level_communities, bottom_level_communities, bottom_to_top_map, color_map,
-    color_by="level_1", title="Hierarchical Community Visualization",
-    spacing_x=5, spacing_y=1.5
+    G,
+    top_level_communities,
+    bottom_level_communities,
+    bottom_to_top_map,
+    color_map,
+    color_by="level_1",
+    title="",
+    figure_size=(14, 10),
+    spacing_y=1.5,
+    top_spacing_x=5,
+    bottom_spacing_x=5,
+    top_text_offset=1.1,
+    bottom_text_offset=1.1,
+    show_text=True
 ):
-    fig, ax = plt.subplots(figsize=(14, 10))
+    fig, ax = plt.subplots(figsize=figure_size)
     pos_dict = {}
     top_positions = {}
     bottom_positions = {}
@@ -86,7 +97,7 @@ def visualize_hierarchical_communities(
         subG = G.subgraph(community)
         pos = nx.spring_layout(subG, seed=42)
         for node in pos:
-            pos[node][0] += i * spacing_x
+            pos[node][0] += i * bottom_spacing_x
             pos[node][1] -= spacing_y
             pos_dict[node] = pos[node]
         bottom_positions[i] = np.mean([pos[n] for n in pos], axis=0)
@@ -95,17 +106,17 @@ def visualize_hierarchical_communities(
         nx.draw_networkx_nodes(subG, pos, node_color=colors, node_size=120, ax=ax, edgecolors="black")
         nx.draw_networkx_edges(subG, pos, ax=ax, alpha=0.3)
 
-    # Top-level layouts computed first (but not yet drawn)
+    # Top-level communities (row 1)
     for i, community in enumerate(top_level_communities):
         subG = G.subgraph(community)
         pos = nx.spring_layout(subG, seed=42)
         for node in pos:
-            pos[node][0] += i * spacing_x
+            pos[node][0] += i * top_spacing_x
             pos[node][1] += spacing_y
         top_layouts[i] = pos
         top_positions[i] = np.mean([pos[n] for n in pos], axis=0)
 
-    # Center the top row over the bottom row
+    # Center top row over bottom row
     top_xs = np.array([pt[0] for pt in top_positions.values()])
     bottom_xs = np.array([pt[0] for pt in bottom_positions.values()])
     x_shift = np.mean(bottom_xs) - np.mean(top_xs)
@@ -113,7 +124,7 @@ def visualize_hierarchical_communities(
     for i, pos in top_layouts.items():
         for node in pos:
             pos[node][0] += x_shift
-            pos_dict[node] = pos[node]  # update global pos_dict
+            pos_dict[node] = pos[node]
         top_positions[i][0] += x_shift
 
     # Draw top-level communities
@@ -123,37 +134,40 @@ def visualize_hierarchical_communities(
         colors = [color_map.get(G.nodes[n][color_by], "#888888") for n in subG.nodes()]
         nx.draw_networkx_nodes(subG, pos, node_color=colors, node_size=120, ax=ax, edgecolors="black")
         nx.draw_networkx_edges(subG, pos, ax=ax, alpha=0.3)
-		    # Annotate top-level community sizes
-    for i, community in enumerate(top_level_communities):
-        if i in top_positions:
+
+        # Annotate top-level
+        if show_text and i in top_positions:
             x, y = top_positions[i]
             ax.text(
-                x, y + 1.1,  # small offset above
+                x, y + top_text_offset,
                 f"Size: {len(community)}",
                 fontsize=12, ha='center', va='bottom', fontweight='bold'
             )
 
-    # --- Draw arrows ---
-    for bottom_idx, top_idx in bottom_to_top_map.items():
-        if top_idx in top_positions and bottom_idx in bottom_positions:
-            arrow = FancyArrowPatch(
-                posA=top_positions[top_idx],
-                posB=bottom_positions[bottom_idx],
-                arrowstyle="->",
-                color="black",
-                alpha=1,
-                connectionstyle="arc3,rad=0.0"
-            )
-            ax.add_patch(arrow)
-		    # Annotate bottom-level community sizes
+    # Arrows and bottom-level annotations
     for i, community in enumerate(bottom_level_communities):
         if i in bottom_positions:
-            x, y = bottom_positions[i]
-            ax.text(
-                x, y - 1.1,  # small offset below
-                f"Size: {len(community)}",
-                fontsize=10, ha='center', va='top', fontweight='bold'
-            )
+            # Draw annotation
+            if show_text:
+                x, y = bottom_positions[i]
+                ax.text(
+                    x, y - bottom_text_offset,
+                    f"Size: {len(community)}",
+                    fontsize=10, ha='center', va='top', fontweight='bold'
+                )
+
+            # Draw arrow
+            top_idx = bottom_to_top_map.get(i)
+            if top_idx in top_positions:
+                arrow = FancyArrowPatch(
+                    posA=top_positions[top_idx],
+                    posB=bottom_positions[i],
+                    arrowstyle="->",
+                    color="black",
+                    alpha=1,
+                    connectionstyle="arc3,rad=0.0"
+                )
+                ax.add_patch(arrow)
 
     ax.set_title(title)
     ax.axis("off")
