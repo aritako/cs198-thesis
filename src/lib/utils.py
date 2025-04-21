@@ -84,8 +84,8 @@ def evaluate_level1_communities(delta, G_subgraph, communities):
     true_labels = [G_subgraph.nodes[n].get("level_1") for n in G_subgraph.nodes()]
 
     return pd.DataFrame({
-				"Level": ["L1"],
-				"Delta": [delta],
+        "Level": ["L1"],
+        "Delta": [delta],
         "Number of Communities": [num_communities],
         "Nodes in Largest Community": [largest_community_size],
         "Community Sizes": [community_sizes],
@@ -155,3 +155,21 @@ def format_results(results_df):
 		]
 		available_columns = [col for col in desired_column_order if col in results_df.columns]
 		return results_df[available_columns]
+
+def generate_missing_row(algorithm, level, delta):
+    missing_row = {
+        "Level": level,
+        "Delta": delta,
+        "Number of Communities": np.nan,
+        "Nodes in Largest Community": np.nan,
+        "Community Sizes": np.nan,
+        "Singletons": np.nan,
+        "Modularity": np.nan,
+        "Closeness Centrality": np.nan,
+        "ARI (L1)": np.nan,
+        "RI (L1)": np.nan,
+        "ARI (L2)": np.nan,
+        "RI (L2)": np.nan,
+        "Communities": np.nan
+    }
+    return pd.DataFrame([missing_row])
