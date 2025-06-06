@@ -139,7 +139,6 @@ The project requires the following dependencies/libraries:
 └── src
     ├── cho-170_network.ipynb
     ├── cho-384_network.ipynb
-    ├── cho_network.ipynb
     ├── data_exploration.ipynb
     ├── lib
     │   ├── __pycache__
@@ -150,7 +149,6 @@ The project requires the following dependencies/libraries:
     └── statistical_analysis
         ├── cho-170_statistical_analysis.ipynb
         └── cho-384_statistical_analysis.ipynb
-
 ```
 
 ### 🧬 `classifications/`
