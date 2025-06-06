@@ -198,7 +198,6 @@ Core notebooks and utility scripts for analysis.
 
 - Main notebooks:
   - `cho-170_network.ipynb`, `cho-384_network.ipynb`: GCN construction and CD for respective datasets.
-  - `cho_network.ipynb`: Joint or comparative analysis for both datasets.
   - `data_exploration.ipynb`: Preliminary exploration and sanity checks.
 
 - `lib/`: Python utility modules.
@@ -210,10 +209,37 @@ Core notebooks and utility scripts for analysis.
   - `cho-384_statistical_analysis.ipynb`
 
 
-## Scripts for Data Preprocessing, Training, Evaluation, and Visualization
-TODO: Add this section
+## Scripts for Data Preprocessing, Evaluation, and Visualization
+This section outlines the main scripts and notebooks used throughout the pipeline:
+
+### 📦 Data Preprocessing
+- `src/data_exploration.ipynb`: Initial inspection of the Cho datasets, normalization checks, and verification of class distributions.
+- `lib/utils.py`: Contains helper functions for Pearson correlation, value-based thresholding, singleton removal, and graph construction.
+
+### 🧪 GCN Construction and Community Detection
+- `src/cho-170_network.ipynb`: Constructs GCNs from Cho-170 dataset at multiple delta thresholds and applies community detection algorithms.
+- `src/cho-384_network.ipynb`: Same process applied to the Cho-384 dataset.
+- `src/cho_network.ipynb`: Optional integrated notebook for testing and comparing both datasets.
+- Algorithms used: Paris, LFM, Girvan-Newman (Hierarchical); Infomap, Walktrap, Spinglass (Dynamic).
+
+### 📊 Evaluation and Metrics
+- Evaluation of Communities via ARI and RI
+  - `src/cho-170_network.ipynb`: Contains the ARI and RI results for Cho-170
+  - `src/cho-384_network.ipynb`: Same evaluation but for the Cho-384 dataset.
+- Statistical Analysis (Not used in our manuscript)
+  - `src/statistical_analysis/cho-170_statistical_analysis.ipynb`: Performs regression analysis on clustering metrics and ARI/RI scores for Cho-170.
+  - `src/statistical_analysis/cho-384_statistical_analysis.ipynb`: Similar evaluation applied to Cho-384 results.
+  - Evaluated using: Adjusted Rand Index (ARI), Rand Index (RI), modularity, closeness centrality, and graph-level properties.
+
+### 🎨 Visualization
+- `lib/visualization.py`: Contains reusable functions for visualizing GCNs, communities, and metric bar charts.
+- Visual outputs stored in `results/<dataset>/visualization/`, including:
+  - GCN plots for each delta and level (e.g., `cho-170_gcn_L1_0.15.png`)
+  - Community plots per algorithm (e.g., `cho-384_infomap_0.85.png`)
+  - Comparative metric plots (e.g., ARI vs RI bar plots)
+- Visualization functions are invoked in `src/cho-170_network.ipynb` and `src/cho-384_network.ipynb`
 
 ## Configuration Files (e.g., .json, .yaml, .ini) for Reproducibility
-No configuration files are relevant for the code used in our study.
+No configuration files are relevant for the code used in our study. Please refer to the versions used in our Jupyter Notebook!
 
 
